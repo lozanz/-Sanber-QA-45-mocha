@@ -1,0 +1,29 @@
+{
+  "name": "sanber-qa-45-mocha",
+  "version": "1.0.0",
+  "description": "api automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lozanz/Sanber-QA-45-mocha.git"
+  },
+  "keywords": [
+    "mocha",
+    "chai",
+    "supertest"
+  ],
+  "author": "zanzz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lozanz/Sanber-QA-45-mocha/issues"
+  },
+  "homepage": "https://github.com/lozanz/Sanber-QA-45-mocha#readme",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
+  }
+}
