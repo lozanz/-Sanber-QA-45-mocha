@@ -1,4 +1,4 @@
-# Sanbercode-45-API-Automation
+# Sanber-QA-45-mocha
 API Automation
 
 Framework
@@ -36,4 +36,8 @@ and file crudProductAndCustomer.suite.js is flow CRUD Product and Customer API
 How to run test : 
 ```
 npx mocha/[filename].js
+```
+Recording of API Automation test :
+```
+https://drive.google.com/file/d/1LA4VbPNTDrfaT9Z3o8Dx8e0FWIBCXHrg/view?usp=sharing
 ```
