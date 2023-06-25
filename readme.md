@@ -1,4 +1,4 @@
-# sanbercode-batch41-supertest
+# Sanbercode-45-API-Automation
 API Automation
 
 Framework
@@ -25,7 +25,13 @@ in the folder consists of automation tests per api:
 - updateProduct.spec.js
 - deleteProduct.spec.js
 
-and one file crudProductAndCustomer.suite.js is dedicated to test end to end flow CRUD Product API
+- addCustomer.spec.js
+- getCustomerList.spec.js
+- getCustomerDetail.spec.js
+- updateCustomer.spec.js
+- deleteCustomer.spec.js
+
+and file crudProductAndCustomer.suite.js is flow CRUD Product and Customer API
 
 How to run test : 
 ```
