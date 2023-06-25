@@ -21,13 +21,12 @@ describe("CRUD Product Flow", () => {
 
   it("add new product with valid data", async () => {
     const response = request(baseUrl)
-      .post("/products") //http method +
+      .post("/products") 
       .set({
         Authorization: `Bearer ${token}`,
       })
       .send(jsonPayload.addProduct);
       console.log((await response).statusCode)
-    //assert response body
     expect((await response).status).to.equal(201);
     expect((await response).body.status).to.equal("success");
     expect((await response).body.data.name).to.equal(jsonPayload.addProduct.name);
@@ -76,6 +75,88 @@ describe("CRUD Product Flow", () => {
   it("Delete product", async () => {
     const response = request(baseUrl)
       .delete("/products/" + productId)
+      .set({
+        Authorization: `Bearer ${token}`,
+      });
+      console.log((await response).statusCode)
+    expect((await response).status).to.equal(200);
+    expect((await response).body.status).to.equal("success");
+  });
+});
+describe("CRUD Customer Flow", () => {
+  var token;
+  var customerName;
+  var customerId;
+
+  before(async () => {
+    const response = request(baseUrl)
+      .post("/authentications")
+      .send(jsonPayload.login);
+
+    expect((await response).status).to.equal(201);
+    expect((await response).body.data.accessToken).not.to.be.null;
+
+    token = (await response).body.data.accessToken;
+  });
+  
+  it("add new Customer with valid data", async () => {
+    const response = request(baseUrl)
+      .post("/customers") 
+      .set({
+        Authorization: `Bearer ${token}`,
+      })
+      .send(jsonPayload.addCustomer);
+      console.log((await response).statusCode)
+    // console.log((await response).body)
+    expect((await response).status).to.equal(201);
+    expect((await response).body.status).to.equal("success");
+    expect((await response).body.data.name).to.equal(jsonPayload.addCustomer.name);
+
+    customerName = (await response).body.data.name;
+  });
+
+  it("Get list of Customers", async () => {
+    const response = request(baseUrl)
+      .get("/customers")
+      .set({
+        Authorization: `Bearer ${token}`,
+      });
+      console.log((await response).statusCode)
+    //   console.log((await response).text)
+    expect((await response).status).to.equal(200);
+    expect((await response).body.data.customers[0].name).to.equal(customerName);
+
+    customerId = (await response).body.data.customers[0].id;
+  });
+
+  it("Get Customer detail with valid id", async () => {
+    const response = request(baseUrl)
+      .get("/customers/" + customerId)
+      .set({
+        Authorization: `Bearer ${token}`,
+      });
+      console.log((await response).statusCode)
+    expect((await response).status).to.equal(200);
+    expect((await response).body.data.customer.name).to.equal("Budi");
+    expect((await response).body.data.customer.address).to.equal("Bandoeng");
+  });
+
+  it("Update Customer data with valid data", async () => {
+    const response = request(baseUrl)
+      .put("/customers/" + customerId)
+      .set({
+        Authorization: `Bearer ${token}`,
+      })
+      .send(jsonPayload.updateCustomer);
+      console.log((await response).statusCode)
+    expect((await response).status).to.equal(200);
+    expect((await response).body.status).to.equal("success");
+    expect((await response).body.data.name).to.equal(jsonPayload.updateCustomer.name);
+  });
+
+  it("Delete Customer", async () => {
+    const response = request(baseUrl)
+      .delete("/customers/" + customerId)
       .set({
         Authorization: `Bearer ${token}`,
       });

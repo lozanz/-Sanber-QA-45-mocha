@@ -16,7 +16,18 @@ module.exports = {
         cost: "3000",
         stock: "1"
      },
-     
+     addCustomer :{
+      name: "Budi",
+      phone: "081234567890",
+      address: "Bandoeng",
+      description: "Budi anak Pak Edi"
+   },
+   updateCustomer :{
+      name: "Budi Doremi",
+      phone: "08987654321",
+      address: "Bandung",
+      description: "Pelanggan VIP"
+   },
      login:{
         email: "samplexx@ex.com",
         password: "123adsfadf@"
